@@ -8,6 +8,12 @@ This Command is used to ignore the file that should not be track by github.
 
 This Command is used to check the status of files which is modified,added and deleted etc.
 
+## git rm --cached filname
+To remote the uningored file from remote repository without deleting it locally
+
+## git ls-files --ignored --exclude-standard -o 
+This Command is used to list out the ignored files
+
 Steps :
 
 1. git init
