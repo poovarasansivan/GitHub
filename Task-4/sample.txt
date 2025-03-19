@@ -1,2 +1,2 @@
 This is sample text file to work with merge conflicts
-This is sample text added using a new branch.
+This is a conflict resolved line
