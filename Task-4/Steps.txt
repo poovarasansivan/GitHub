@@ -63,7 +63,7 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-14. git diff - to see the conflicts difference in the file
+14. git diff - to see the  difference between branches
 
 diff --cc Task-4/sample.txt
 index 2f65f69,93d0bdc..0000000
@@ -82,3 +82,4 @@ index 2f65f69,93d0bdc..0000000
 
 16. git commit -m "Conflict Resolved" - Commiting the changes after solving the conflicts.
 
+17. git push origin main - To push the changes to remote repository
