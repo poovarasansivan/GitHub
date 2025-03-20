@@ -1,50 +1,98 @@
 # Steps Executed
 
-1. Created a Sample text file with some content
-2. git add <filename> - to stage the changes
+- Created a Sample text file with some content
+```
+git add <filename> 
+```
+- To stage the changes
 
-3. git commit -m "Initial commit with sample.txt" - To commit the changes
+```
+git commit -m "Initial commit with sample.txt"
+```
+- To commit the changes
+
+```
 [main 4885496] Initial Commit with sample.txt
  1 file changed, 1 insertion(+)
  create mode 100644 Task-4/sample.txt
+```
 
-4. git checkout -b conflicts - Created a new branch named conflicts
+```
+git checkout -b conflicts 
+```
+- Created a new branch named conflicts
+
+```
 Switched to a new branch 'conflicts'
+```
 
-5. Modified the sample.txt file by adding new line of content.
+- Modified the sample.txt file by adding new line of content.
 
-6. git commit -am "Updated sample.txt" - a (auto stage Modified files) and m (commit message). Quick solution to stage and commit in single command.
+```
+git commit -am "Updated sample.txt" 
+```
+- a (auto stage Modified files) and m (commit message). Quick solution to stage and commit in single command.
+
+```
 [conflicts a6b01c1] Updated sample.txt
  1 file changed, 1 insertion(+)
+```
 
-7. Again switch back to main branch
+- Again switch back to main branch
+```
 Switched to branch 'main'
 Your branch is ahead of 'origin/main' by 1 commit.
-
-8.  Again Created a new branch (conflict2) and switched to that branch.
+```
+- Again Created a new branch (conflict2) and switched to that branch.
+```
 Switched to a new branch 'conflict2'
+```
+```
+git commit -am "Updated sample.txt" 
+```
+- Modified the file and commited it.
 
-9. git commit -am "Updated sample.txt" - Modified the file and commited it.
+```
 [conflict2 e6ef574] Updated sample.txt
  1 file changed, 1 insertion(+)
+```
 
-10. Again switch back to main branch
+- Again switch back to main branch
+```
 Switched to branch 'main'
 Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
+```
 
-11. git merge conflicts - Merging the main and conflicts branch.
+```
+git merge conflicts 
+```
+- Merging the main and conflicts branch.
+
+```
 Updating 4885496..a6b01c1
 Fast-forward
  Task-4/sample.txt | 1 +
  1 file changed, 1 insertion(+)
+```
 
-12. git merge conflict2 - Merging the conflict2 branch
+```
+git merge conflict2
+```
+ - Merging the conflict2 branch
+
+```
 Auto-merging Task-4/sample.txt
 CONFLICT (content): Merge conflict in Task-4/sample.txt
 Automatic merge failed; fix conflicts and then commit the result.
+```
 
-13. git status - To see the status and issues
+```
+git status 
+```
+- To see the status and issues
+
+```
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
   (use "git push" to publish your local commits)
@@ -77,9 +125,21 @@ index 2f65f69,93d0bdc..0000000
 ++This is sample text added using a new branch.
 ++=======
 :
+```
 
-15. git add sample.txt - Fixed the conflict part of lines and staged it.
+```
+ git add sample.txt 
+```
+- Fixed the conflict part of lines and staged it.
 
-16. git commit -m "Conflict Resolved" - Commiting the changes after solving the conflicts.
+```
+git commit -m "Conflict Resolved" 
+```
+- Commiting the changes after solving the conflicts.
 
-17. git push origin main - To push the changes to remote repository
+
+```
+ git push origin main
+ ```
+ 
+  - To push the changes to remote repository
