@@ -4,4 +4,8 @@ Running pre-commit checks...
 Error: Empty file detected - Task-8/Empty.txt
 
 2. After Creating a pre-commit hook and trying to commit a file with confidential details. Then following output got (checks for any passwords and secret keys present in the file).
+PS D:\Internship Training\Git-Hub\Task-8> git commit -m "commit with secret keys"
+ Running pre-commit checks...
+ Error: Potential secret key detected! Remove it before committing.
 
+3. 

@@ -1,2 +1,1 @@
-Here is my passwords
-Password = Poosu@1250
+Hello, This is sample file to perform a git pre-commit hooks
