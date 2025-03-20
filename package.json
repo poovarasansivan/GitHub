@@ -1,0 +1,14 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "- Manage multiple version across the project.\r   - Tracks the changes up to date.\r   - Helps to create a Isolated Environment for each new feature.\r # Overview of the Repository\r ## Task 1\r ### Objective\r - To create new repository and perform repo initialization, Commit and Branch. \r ### Files\r - Index.html - Sample html file uploaded from local repository.\r - Feature.html - File updated and merged by creating a branch.\r - Commands.txt - Contains the steps with explanation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.22.0"
+  }
+}
