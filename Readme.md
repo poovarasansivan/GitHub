@@ -71,7 +71,7 @@
 - To setup a git hooks and performs the automated checks to find sensitive datas and linters (syntax issues in js files).
 
 # Files
-- ```index.txt`` - Text file used to perform the task.
+- ```index.txt``` - Text file used to perform the task.
 - ```Readme.md``` - Readme Document contains the steps, commands learned by doing this task.
 
 # Task 9
@@ -79,12 +79,12 @@
 - To work with remote repository.
 
 # Files
-- ```index.html`` - Html file used to perform the task.
+- ```index.html``` - Html file used to perform the task.
 - ```Readme.md``` - Readme Document contains the steps, commands learned by doing this task.
 
 # Task 10
 # Objective
 - To work with git push --force and git reflog.
 
-- ```index.txt`` - Text file used to perform the task.
+- ```index.txt``` - Text file used to perform the task.
 - ```Readme.md``` - Readme Document contains the steps, commands learned by doing this task.
