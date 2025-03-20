@@ -1,11 +1,43 @@
+# Topic - Git Hooks to perform automated checks 
+ 
+ - Git Hooks to perform a operation (automated checks) before and after committing the changes. Pre-commit hook will check for trying to commit empty file and file with a sensitive information.
 
-1. After Creating a pre-commit hook and trying to commit a empty file. Then following output got (checks for empty file commit).
-Running pre-commit checks...
-Error: Empty file detected - Task-8/Empty.txt
+# Steps Performed
 
-2. After Creating a pre-commit hook and trying to commit a file with confidential details. Then following output got (checks for any passwords and secret keys present in the file).
-PS D:\Internship Training\Git-Hub\Task-8> git commit -m "commit with secret keys"
- Running pre-commit checks...
- Error: Potential secret key detected! Remove it before committing.
+1. Create a pre-commit hooks (shell script) inside the .git/hooks/pre-commit to automatically perform checking any files containing the sensitive information and trying to commit empty file.
 
-3. 
+#!/bin/sh
+
+echo " Running pre-commit checks..."
+
+# Get the list of staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Check for empty files
+for FILE in $STAGED_FILES; do
+    if [ ! -s "$FILE" ]; then
+        echo "Error: Empty file detected - $FILE"
+        exit 1
+    fi
+done
+
+# Check for secret keys 
+SECRET_PATTERNS="[A-Z0-9]{20,}|[a-z0-9]{20,}"
+if git diff --cached | grep -E "$SECRET_PATTERNS"; then
+    echo " Error: Potential secret key detected! Remove it before committing."
+    exit 1
+fi
+
+echo "Pre-commit checks passed!"
+exit 0
+
+2. Created a Empty text file and tried to commit it. Got an message indicating Empty file detected - with <filename>.
+
+3. Then Tried to commit a .env file containing the secret_keys. Got an message indicating  Error: Potential secret key detected! Remove it before committing.
+
+4. Created .gitignore file and added a .env file to avoid tracking.
+
+5. Then Executed a commit and it does cause any issues.
+
+
+
