@@ -1,1 +1,1 @@
-Hello, This is sample file to perform a git pre-commit hooks
+Hello, This is sample file to perform a git pre-commit hooks.
