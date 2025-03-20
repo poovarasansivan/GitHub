@@ -1,59 +1,68 @@
+# Topic - Working with Forced Pushes and RecoveryObject
 
-poova@POOVARASAN MINGW64 /d/Internship Training/Git-Hub (main)
-$ git add Task-10
+    - Learned about how to recover the lost commit history with reflog.
 
-poova@POOVARASAN MINGW64 /d/Internship Training/Git-Hub (main)
-$ git add Task-10
+# Steps Performed
 
-poova@POOVARASAN MINGW64 /d/Internship Training/Git-Hub (main)
-$ git commit -m "Main branch commit"
-[main 643cf5a] Main branch commit
- 1 file changed, 1 insertion(+)
- create mode 100644 Task-10/Index.txt
+1. Created a repository and configured it will local project folder.
+2. Created a sample text file and pushed it on remote repository using main branch.
+3. Created a Three new branches(feature-branch,bux-fix,release-branch) other than main branch.
+3. Committed and pushed this all branches into remote repository.
+4. Modified the text file and pushed it into remote repository using feature branch.
+5. Again modified the text file and pushed it into remote repository.
+6. Now deleted the last commit history with a help of a command ```git reset --hard HEAD~1 ```
+7. Pushed the changes to remote repository by stagging and committing it.
+8. Now using a ```git reflog``` to see all the commit history with hashes. 
+9. Finding the lost commit hash and used to recover the commit with the help of ```git reset --hard 644ae33```
+10. Finally pushing the recovered commit history to the remote repository.
+
+# Commands
+
+``` 
+git add . 
+``` 
+    - To Stage the changes into local repository.
+
+``` 
+git commit -m "message" 
+```
+    - To commit the stagged changes into local repository.
+
+``` 
+git push origin main 
+```
+    - To Push the local repository content to remote repository.
+
+```
+git reset HEAD~1
+```
+    - To Delete the Last commit history and data.
+
+```
+git reflog
+```
+    - To find the lost commit history hash and data.
+
+```
+git reset --hard <hash>
+```
+    - To recover the lost commit history and data.
+
+```
+git push origin main
+```
+    - Updates the recovered data and commit history to remote repository.
 
 
-$ git checkout -b new-feature
-Switched to a new branch 'new-feature'
+# Why forced pushes needs to be handled with care?
+    - Forced pushes needs to be handled with care because it can overwritte remote commits and cause irreversible data loss for collaborators.
+    - It have a risk of overwritting others work and cause a loss of work and data.
+    - Loss of commit history make it difficult to track changes.
+    - To overcome this need to use ```git push --force-with-lease``` to protect other collaborators work.
 
-poova@POOVARASAN MINGW64 /d/Internship Training/Git-Hub (new-feature)
-$ git push origin new-feature
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (4/4), 340 bytes | 340.00 KiB/s, done.
-Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-remote:
-remote: Create a pull request for 'new-feature' on GitHub by visiting:
-remote:      https://github.com/poovarasansivan/GitHub/pull/new/new-feature
-remote:
-To https://github.com/poovarasansivan/GitHub.git
- * [new branch]      new-feature -> new-feature
+# How Git Reflog Becomes a Lifesaver?
+    - Git Reflog (Reference Log) is a lifesave when historys are rewritted, accidental reset, and performing a commit with force push. 
+    - It also helps to recover from mistakes like forced pushes, resets.
 
-$ git checkout -b bugfix-branch
-Switched to a new branch 'bugfix-branch'
-
-poova@POOVARASAN MINGW64 /d/Internship Training/Git-Hub (bugfix-branch)
-$ git push origin bugfix-branch
-Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-remote: 
-remote: Create a pull request for 'bugfix-branch' on GitHub by visiting:
-remote:      https://github.com/poovarasansivan/GitHub/pull/new/bugfix-branch
-remote:
-To https://github.com/poovarasansivan/GitHub.git
- * [new branch]      bugfix-branch -> bugfix-branch
-
-
-$ git checkout -b release-branch
-Switched to a new branch 'release-branch'
-
-$ git push -u origin release-branch
-Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-remote: 
-remote: Create a pull request for 'release-branch' on GitHub by visiting:
-remote:      https://github.com/poovarasansivan/GitHub/pull/new/release-branch
-remote:
-To https://github.com/poovarasansivan/GitHub.git
- * [new branch]      release-branch -> release-branch
-branch 'release-branch' set up to track 'origin/release-branch'.
+# Best Practices for collaborators.
+    - Always suggested to use a ```git push --force-with-lease``` instead of ```git push --force```. Because it will helps to protect other collaborators work.

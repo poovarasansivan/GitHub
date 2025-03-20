@@ -1,2 +1,2 @@
-Hi, I am sample file to work.
-Added to work on feature branch.
+Hi I am added as a first line for first commit.
+I am added to work on reflog.
