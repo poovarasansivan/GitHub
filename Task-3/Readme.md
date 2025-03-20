@@ -1,6 +1,7 @@
 # Commands Learned
 
-```git restore <filename> 
+```
+git restore <filename> 
 ```
 - To discard the changes in a file before staging it.
 
