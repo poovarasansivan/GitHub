@@ -19,7 +19,7 @@ Types of Hooks
     2. update
     3. post-recive
 
-Task Performed Using pre-commit
+Task Performed Using pre-commit and run a linter 
 
 - pre-commit
     - This will hook will work before commit is made.
@@ -54,6 +54,19 @@ Steps Performed
     echo " Error: Potential secret key detected! Remove it before committing."
     exit 1
     fi
+    
+    
+    # Run ESLint on staged .js files
+
+    if git diff --cached --name-only | grep -E "\.js$"; then
+        echo "Running ESLint..."
+        npx eslint . --fix
+        if [ $? -ne 0 ]; then
+            echo " Linting failed! Fix issues before committing."
+            exit 1
+        fi
+    fi
+
 
 2. Created a Empty.txt file 
 
@@ -80,3 +93,18 @@ Steps Performed
     Running pre-commit checks...
     [main <commit-hash>] .gitignore added
 
+8. Created a sample .js file with syntax issues and tried to commit after stagging it.
+    
+    Output
+
+    git commit -m "Test Eslint"
+    Running pre-commit checks...
+    Task-8/sample.js
+    Running ESLint...
+
+    D:\Internship Training\Git-Hub\Task-8\sample.js
+    1:12  error  Parsing error: Unterminated string constant
+
+    1 problem (1 error, 0 warnings) 
+
+    Linting failed! Fix issues before committing.
