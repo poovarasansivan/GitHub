@@ -1,2 +1,2 @@
 Here is my passwords
-Password = "Poosu@1250"
+Password = Poosu@1250
